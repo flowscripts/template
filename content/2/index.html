@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stopwatch">
+        <h1>Stopwatch</h1>
+        <div id="display">00:00:00</div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+        <button id="save" style="display: none;">Save</button>
+
+        <h1>Settings</h1>
+        <div class="radio-group">
+            <label><input type="radio" name="precision" value="0" checked> Seconds</label><br><br>
+            <label><input type="radio" name="precision" value="1"> 0.1 Seconds</label><br><br>
+            <label><input type="radio" name="precision" value="2"> 0.01 Seconds</label><br><br>
+            <label><input type="radio" name="precision" value="3"> Milliseconds</label><br><br>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
