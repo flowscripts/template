@@ -72,6 +72,11 @@ nav a {
     width: 300px;
     border: 1px solid rgb(68, 68, 68);
     border-radius: 5px;
+
+.trendingimage:hover {
+    
+    border: 1px solid rgb(209, 209, 209);
+   
 }
 .close {
     color: #aaa;
