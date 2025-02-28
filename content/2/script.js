@@ -6,14 +6,12 @@ const display = document.getElementById("display");
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const resetButton = document.getElementById("reset");
-const saveButton = document.getElementById("save");
 const radioButtons = document.querySelectorAll('input[name="precision"]');
 const buttons = [startButton, stopButton, resetButton];
 
 startButton.addEventListener("click", () => handleClick(startButton));
 stopButton.addEventListener("click", () => handleClick(stopButton));
 resetButton.addEventListener("click", () => handleClick(resetButton));
-saveButton.addEventListener("click", saveTime);
 radioButtons.forEach(radio => radio.addEventListener("change", setPrecision));
 
 function handleClick(button) {
@@ -29,7 +27,6 @@ function start() {
         startTime = new Date().getTime() - (difference || 0);
         tInterval = setInterval(updateTime, 100);
         running = true;
-        saveButton.style.display = "none";
     }
 }
 
@@ -38,7 +35,6 @@ function stop() {
         clearInterval(tInterval);
         difference = new Date().getTime() - startTime;
         running = false;
-        saveButton.style.display = "inline";
     }
 }
 
@@ -48,15 +44,10 @@ function reset() {
     running = false;
     display.innerHTML = "00:00:00";
     document.title = "Stopwatch";
-    saveButton.style.display = "none";
 }
 
 function setPrecision() {
     precision = Number(document.querySelector('input[name="precision"]:checked').value);
-}
-
-function saveTime() {
-    alert(`Time saved: ${display.innerHTML}`);
 }
 
 function updateTime() {
