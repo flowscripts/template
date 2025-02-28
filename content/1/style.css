@@ -42,16 +42,14 @@ nav a {
     background-color: #fff;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-footer {
+}footer {
     text-align: center;
     padding: 1rem;
     background-color: #4f0000;
     color: #fff;
-    position: fixed;
     width: 100%;
-    bottom: 0;
 }
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
