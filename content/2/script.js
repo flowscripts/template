@@ -10,15 +10,10 @@ const saveButton = document.getElementById("save");
 const radioButtons = document.querySelectorAll('input[name="precision"]');
 const buttons = [startButton, stopButton, resetButton];
 
-window.onload = () => {
-    loadCookies();
-    if (running) start();
-};
-
 startButton.addEventListener("click", () => handleClick(startButton));
 stopButton.addEventListener("click", () => handleClick(stopButton));
 resetButton.addEventListener("click", () => handleClick(resetButton));
-saveButton.addEventListener("click", saveCookies);
+saveButton.addEventListener("click", saveTime);
 radioButtons.forEach(radio => radio.addEventListener("change", setPrecision));
 
 function handleClick(button) {
@@ -35,7 +30,6 @@ function start() {
         tInterval = setInterval(updateTime, 100);
         running = true;
         saveButton.style.display = "none";
-        saveCookies();
     }
 }
 
@@ -45,7 +39,6 @@ function stop() {
         difference = new Date().getTime() - startTime;
         running = false;
         saveButton.style.display = "inline";
-        saveCookies();
     }
 }
 
@@ -56,12 +49,14 @@ function reset() {
     display.innerHTML = "00:00:00";
     document.title = "Stopwatch";
     saveButton.style.display = "none";
-    saveCookies();
 }
 
 function setPrecision() {
     precision = Number(document.querySelector('input[name="precision"]:checked').value);
-    saveCookies();
+}
+
+function saveTime() {
+    alert(`Time saved: ${display.innerHTML}`);
 }
 
 function updateTime() {
@@ -99,28 +94,4 @@ function formatTitle(hours, minutes, seconds) {
     }
 
     return title;
-}
-
-function saveCookies() {
-    document.cookie = `running=${running}; path=/`;
-    document.cookie = `difference=${difference || 0}; path=/`;
-    document.cookie = `precision=${precision}; path=/`;
-}
-
-function loadCookies() {
-    const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
-        const [name, value] = cookie.split("=");
-        acc[name] = value;
-        return acc;
-    }, {});
-
-    running = cookies.running === "true";
-    difference = Number(cookies.difference) || 0;
-    precision = Number(cookies.precision) || 0;
-    document.querySelector(`input[name="precision"][value="${precision}"]`).checked = true;
-    display.innerHTML = "00:00:00";
-    if (difference > 0 && !running) {
-        startTime = new Date().getTime() - difference;
-        updateTime();
-    }
 }
