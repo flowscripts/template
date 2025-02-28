@@ -1,0 +1,106 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background: rgb(129, 0, 0);
+    background: linear-gradient(90deg, rgba(129, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    font-size: 20px;
+    padding: 1rem;
+}
+.logo {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+.search-bar {
+    margin-right: 1rem;
+}
+.search-bar input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #7f0000;
+    padding: 0.5rem;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+.container {
+    margin: 1rem auto;
+    max-width: 800px;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #4f0000;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.trendingimage {
+    width: 300px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 5px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media (max-width: 421px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-bar {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+    .search-bar input {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
