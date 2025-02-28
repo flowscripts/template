@@ -1,7 +1,6 @@
 let startTime, updatedTime, difference, tInterval;
 let running = false;
 let precision = 0;
-
 const display = document.getElementById("display");
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
